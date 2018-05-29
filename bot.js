@@ -10,9 +10,9 @@
         const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 	bot.on('ready', () => {
-	console.log("Yükleniyor...");
+	console.log("Yukleniyor...");
 	setTimeout(function(){
-	console.log("Zappara Başarıyla Yüklendi.");
+	console.log("Zappara Pro basariyla yuklendi.");
 	}, 1000);
 	function botStatus() {
         let status = [
