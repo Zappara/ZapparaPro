@@ -48,14 +48,6 @@
 	bot.commands.set(props.help.name, props);
 	});
 	});
-
-	bot.on("message", async message => {
-      let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-  if(!prefixes[message.guild.id]){
-    prefixes[message.guild.id] = {
-      prefixes: botconfig.prefix
-    };
-  }
 	
     let prefix = prefixes[message.guild.id].prefixes;
 	if(message.author.bot) return undefined;
@@ -137,7 +129,7 @@
     let bots = member.guild.members.filter(m => m.user.bot).size;
     bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
 	const members = member.guild.memberCount;
-	const channel = member.guild.channels.find('name', 'giriş');
+	const channel = member.guild.channels.find('name', 'zp_giriş');
 	if (!channel) return;
 	
        let Role = member.guild.roles.find(`name`, "Bot");
@@ -161,7 +153,7 @@
     bot.channels.get('450952771752034305').setName(`Üye Sayısı: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
     bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
-	const channel = member.guild.channels.find(`name`, 'çıkış');
+	const channel = member.guild.channels.find(`name`, 'zp_çıkış');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
 	.setColor("#e26346")
