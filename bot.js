@@ -1,7 +1,7 @@
 	const Discord = require("discord.js");
 	const botconfig = require("./botconfig.json");
 	const fs = require("fs");
-        let prefix = "zp!";
+  let prefix = "zp!";
 	let bot = new Discord.Client();
 	bot.commands = new Discord.Collection();
 	const coins = require("./coins.json");
@@ -30,7 +30,7 @@
         setInterval(() => {
         dbl.postStats(bot.guilds.size)
         }, 1800000);
-	})
+	});
 
 	fs.readdir("./komutlar/", (err, files) => {
     console.log(`Yuklendi ${files.length} komutu.`)
