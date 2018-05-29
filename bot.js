@@ -18,7 +18,7 @@
         let status = [
             `Benim Prefixim: ${botconfig.prefix}`,
             `Teşekkürler: ${bot.guilds.size} sunucu.`,
-            `Yenilikler: ${prefix}y .`,
+            `Yenilikler: ${botconfig.prefix}y .`,
             `Sahibi: Enes Onur Ata#9427`,
             `Hizmet veriyor: ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} Kullanıcıya`
         ];
