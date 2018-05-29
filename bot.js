@@ -1,6 +1,7 @@
 	const Discord = require("discord.js");
 	const botconfig = require("./botconfig.json");
 	const fs = require("fs");
+        let prefix = "zp!";
 	let bot = new Discord.Client();
 	bot.commands = new Discord.Collection();
 	const coins = require("./coins.json");
@@ -10,9 +11,9 @@
         const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 	bot.on('ready', () => {
-	console.log("Yükleniyor...");
+	console.log("Yukleniyor...");
 	setTimeout(function(){
-	console.log("Zappara Pro Başarıyla Yüklendi.");
+	console.log("Zappara Pro Basariyla Yuklendi.");
 	}, 1000);
 	function botStatus() {
         let status = [
