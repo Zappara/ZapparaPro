@@ -18,5 +18,5 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embed);
 }
 module.exports.help = {
-    name: "help"
+    name: "yardım"
 }
