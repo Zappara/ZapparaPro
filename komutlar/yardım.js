@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Eğlence", "`" + message.prefix + "eğlence`", true)
     .addField("İstatistikler", "`" + message.prefix + "istatistikler`", true)
     .addField("Admin", "`" + message.prefix + "admin`", true)
-  .setFooter("Gördüğünüz tüm komutlar JavaScript'tir " + message.prefix + "yardım" + "Botun Sahibi: Enes Onur Ata#9427")
+  .setFooter("Gördüğünüz tüm komutlar JavaScript'tir -" + message.prefix + "yardım" + "- Botun Sahibi: Enes Onur Ata#9427")
     message.channel.send(embed);
 }
 module.exports.help = {
