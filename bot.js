@@ -43,7 +43,7 @@
 
 	jsfile.forEach((f, i) =>{
 	let props = require(`./komutlar/${f}`);
-	console.log(`${f} yüklendi.`);
+	console.log(`${f} yuklendi.`);
 	bot.commands.set(props.help.name, props);
 	});
 	});
@@ -174,7 +174,7 @@
 	      let channel = bot.channels.get("450955859510427650")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
-        .setAuthor(`Katıldım - **${guild.name}**`)
+        .setAuthor(`Katıldım - ${guild.name}`)
         .setThumbnail(guild.iconURL)
         .addField("Sahibi", guild.owner.user.tag)
         .addField("ID", guild.id, true)
@@ -186,7 +186,7 @@
 	      let channel = bot.channels.get("450955966158995456")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
-        .setAuthor(`Ayrıldım - **${guild.name}**`)
+        .setAuthor(`Ayrıldım - ${guild.name}`)
         .setThumbnail(guild.iconURL)
         .addField("Sahibi", guild.owner.user.tag)
         .addField("ID", guild.id, true)
