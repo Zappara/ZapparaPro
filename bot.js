@@ -1,7 +1,7 @@
 	const Discord = require("discord.js");
 	const botconfig = require("./botconfig.json");
 	const fs = require("fs");
-  let prefix = "zp!";
+        let prefix = "zp!";
 	let bot = new Discord.Client();
 	bot.commands = new Discord.Collection();
 	const coins = require("./coins.json");
@@ -54,8 +54,8 @@
         if(message.content.toLowerCase() === '<@440815976880275465>'){
         let embed = new Discord.RichEmbed()
        .setTitle("Zappara Pro")
-       .addField("Prefix", `\`${prefix}\``, true)
-       .addField("Yardım", `\`${prefix}y\``, true)
+       .addField("Prefix", `\`${botconfig.prefix}\``, true)
+       .addField("Yardım", `\`${botconfig.prefix}y\``, true)
        .setThumbnail(bot.user.displayAvatarURL)
        .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
         message.channel.send(embed);
