@@ -1,7 +1,7 @@
 	const Discord = require("discord.js");
 	const botconfig = require("./botconfig.json");
 	const fs = require("fs");
-        let prefix = "zp!";
+	const prefix = botconfig.prefix;
 	let bot = new Discord.Client();
 	bot.commands = new Discord.Collection();
 	const coins = require("./coins.json");
