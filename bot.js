@@ -49,7 +49,6 @@
 	});
 	});
 	
-    let prefix = ${botconfig.prefix};
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
         if(message.content.toLowerCase() === '<@440815976880275465>'){
