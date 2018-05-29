@@ -32,18 +32,18 @@
 	})
 
 	fs.readdir("./komutlar/", (err, files) => {
-    console.log(`Yüklendi ${files.length} commands.`)
+    console.log(`Yuklendi ${files.length} komutu.`)
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
 	if(jsfile.length <= 0){
-	console.log("Komut bulunamadı.");
+	console.log("Komut bulunamadi.");
 	return;
 	}
 
 
 	jsfile.forEach((f, i) =>{
 	let props = require(`./komutlar/${f}`);
-	console.log(`${f} yüklendi.`);
+	console.log(`${f} yuklendi.`);
 	bot.commands.set(props.help.name, props);
 	});
 	});
@@ -194,4 +194,4 @@
         .addField("Kanal Sayısı", guild.channels.size, true)
          channel.send(embed);
 	});
-	bot.login(process.env.TOKEN);
+	bot.login(process.env.BOT_TOKEN);
