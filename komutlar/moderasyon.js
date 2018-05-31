@@ -4,15 +4,15 @@ module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
     .setTitle(":tools: Moderasyon Komutları")
-    .addField("`" + message.prefix + "yasakla`", "Kullanıcıyı yasaklar")
-    .addField("`" + message.prefix + "yasak-kaldır`", "Kullanıcının yasağını kaldırır [IDyi kullanın]")
+    .addField("`" + message.prefix + "ban`", "Kullanıcıyı yasaklar")
+    .addField("`" + message.prefix + "unban`", "Kullanıcının yasağını kaldırır [IDyi kullanın]")
+    .addField("`" + message.prefix +"kick`", "Kullanıcıyı atar")
     .addField("`" + message.prefix +"sil`", "Mesajları siler")
-    .addField("`" + message.prefix +"at`", "Kullanıcıyı atar")
-    .setFooter("Gördüğünüz her şey JavaScript'tir")
+    .setFooter("Tüm Komutlar JavaScript'tir. » By Enes Onur Ata#9427")
 
 message.channel.send(embed);
 }
 
 module.exports.help = {
-  name: "moderasyon"
+  name: "mod"
 }
