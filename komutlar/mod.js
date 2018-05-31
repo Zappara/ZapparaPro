@@ -8,6 +8,7 @@ let embed = new Discord.RichEmbed()
     .addField("`" + message.prefix + "unban`", "Kullanıcının yasağını kaldırır [IDyi kullanın]")
     .addField("`" + message.prefix +"kick`", "Kullanıcıyı atar")
     .addField("`" + message.prefix +"mute`", "Kullanıcıyı susturur")
+    .addField("`" + message.prefix +"unmute", "Kullanıcının susturma yasağı kalkar")
     .addField("`" + message.prefix +"sil`", "Mesajları siler")
     .setFooter("Tüm Komutlar JavaScript'tir. » By Enes Onur Ata#9427")
 
