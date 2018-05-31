@@ -32,7 +32,7 @@
         }, 1800000);
 	})
 
-	fs.readdir("./commands/", (err, files) => {
+	fs.readdir("./komutlar/", (err, files) => {
     console.log(`Yuklendi ${files.length} komut.`)
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
