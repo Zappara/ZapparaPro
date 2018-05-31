@@ -10,17 +10,18 @@
         const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 	bot.on('ready', () => {
-	console.log("Loading...");
+	console.log("YUKLENIYOR...");
 	setTimeout(function(){
-	console.log("Bot has been loaded completely.");
+	console.log("Enes Onur Ata hizmete acilmistir.");
 	}, 1000);
 	function botStatus() {
         let status = [
-            `My Default Prefix ${botconfig.prefix}.`,
-            `in ${bot.guilds.size} guilds.`,
-            `in ACH.`,
-            `with my dev Tritax#2924`,
-            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
+            `Prefix ${botconfig.prefix}.`,
+            `Teşekkürler : ${bot.guilds.size} Sunucu.`,
+	    `Teşekkürler ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
+            `Ramazan Ayınız Mübarek Olsun.`,
+            `Sahibi: Enes Onur Ata#9427`,
+	    `Enes Onur Ata`,
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
@@ -32,18 +33,18 @@
 	})
 
 	fs.readdir("./commands/", (err, files) => {
-    console.log(`Loaded ${files.length} commands.`)
+    console.log(`Yuklendi ${files.length} komut.`)
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
 	if(jsfile.length <= 0){
-	console.log("Couldn't find commands.");
+	console.log("Komutlar bulunamadi.");
 	return;
 	}
 
 
 	jsfile.forEach((f, i) =>{
-	let props = require(`./commands/${f}`);
-	console.log(`${f} loaded!`);
+	let props = require(`./komutlar/${f}`);
+	console.log(`${f} yuklendi!`);
 	bot.commands.set(props.help.name, props);
 	});
 	});
@@ -61,7 +62,7 @@
 	if(message.channel.type === 'dm') return ;
         if(message.content.toLowerCase() === '<@421925809532436481>'){
         let embed = new Discord.RichEmbed()
-       .setTitle("Tritax AI")
+       .setTitle("Enes Onur Ata")
        .addField("Prefix", `\`${prefix}\``, true)
        .addField("Help", `\`${prefix}help\``, true)
        .setThumbnail(bot.user.displayAvatarURL)
@@ -77,9 +78,9 @@
 
 
 	try {
-	let commandFile = require(`./commands/${cmd}.js`);
+	let commandFile = require(`./komutlar/${cmd}.js`);
 	commandFile.run(bot, message, args);
-	if(!commandFile) return message.channel.send("No command found with that name.");
+	if(!commandFile) return message.channel.send("Bu isimde hiçbir komut bulunamadı.");
 	} catch (e) { console.log(e) }
 
 	if(!coins[message.author.id]){
