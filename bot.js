@@ -16,9 +16,15 @@
 	}, 1000);
 	function botStatus() {
         let status = [
-            `Benim Prefixim: ${botconfig.prefix}`,
+            `Prefixim: ${botconfig.prefix}`,
             `Teşekkürler: ${bot.guilds.size} sunucu.`,
-            `♥ Zappara Pro ♥`,
+            `♥ Enes Onur Ata ♥`,
+	    `♥ Zappara ♥`,
+	    `♥ Zappara Pro ♥`,
+	    `♥ Terbiyesiz ♥`,
+	    `♥ Ramazan Bot ♥`,
+	    `Ramazan Ayınız mübarek olsun.`,
+	    `Destek Sunucusu » https://discord.me/zappara`,
             `Sahibi: Enes Onur Ata#9427`,
             `Hizmet veriyor: ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} Kullanıcıya`
         ];
