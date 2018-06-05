@@ -10,18 +10,17 @@
         const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 	bot.on('ready', () => {
-	console.log("YUKLENIYOR...");
+	console.log("Yukleniyor...");
 	setTimeout(function(){
-	console.log("Enes Onur Ata hizmete acilmistir.");
+	console.log("Zappara Pro basariyla yuklendi.");
 	}, 1000);
 	function botStatus() {
         let status = [
-            `Prefix ${botconfig.prefix}.`,
-            `Teşekkürler : ${bot.guilds.size} Sunucu.`,
-	    `Teşekkürler ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
-            `Ramazan Ayınız Mübarek Olsun.`,
+            `Benim Prefixim: ${botconfig.prefix}`,
+            `Teşekkürler: ${bot.guilds.size} sunucu.`,
+            `♥ Zappara Pro ♥`,
             `Sahibi: Enes Onur Ata#9427`,
-	    `Enes Onur Ata`,
+            `Hizmet veriyor: ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} Kullanıcıya`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
@@ -37,14 +36,14 @@
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
 	if(jsfile.length <= 0){
-	console.log("Komutlar bulunamadi.");
+	console.log("Komut bulunamadı.");
 	return;
 	}
 
 
 	jsfile.forEach((f, i) =>{
 	let props = require(`./komutlar/${f}`);
-	console.log(`${f} yuklendi!`);
+	console.log(`${f} yuklendi.`);
 	bot.commands.set(props.help.name, props);
 	});
 	});
@@ -60,11 +59,11 @@
     let prefix = prefixes[message.guild.id].prefixes;
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
-        if(message.content.toLowerCase() === '<@421925809532436481>'){
+        if(message.content.toLowerCase() === '<@440815976880275465>'){
         let embed = new Discord.RichEmbed()
-       .setTitle("Enes Onur Ata")
+       .setTitle("Zappara Pro")
        .addField("Prefix", `\`${prefix}\``, true)
-       .addField("Help", `\`${prefix}help\``, true)
+       .addField("Yardım", `\`${prefix}yardım\``, true)
        .setThumbnail(bot.user.displayAvatarURL)
        .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
         message.channel.send(embed);
@@ -131,68 +130,68 @@
 
 	});
 	bot.on('guildMemberAdd', member => {
-    bot.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    bot.channels.get('450952678781091842').setName(`Toplam Üye: ${member.guild.memberCount}`)
     let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    bot.channels.get('450952771752034305').setName(`Üye Sayısı: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
+    bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
 	const members = member.guild.memberCount;
-	const channel = member.guild.channels.find('name', 'member-log');
+	const channel = member.guild.channels.find('name', 'zp_ekleyenler');
 	if (!channel) return;
 	
-       let Role = member.guild.roles.find(`name`, "Bots");
+       let Role = member.guild.roles.find(`name`, "Bot");
        if(member.user.bot){
 	member.addRole(Role.id)
        }else{
-      let role = member.guild.roles.find(`name`, "User");
+      let role = member.guild.roles.find(`name`, "Üye");
 	member.addRole(role.id)
        }
  
 	let Embed = new Discord.RichEmbed()
-	.setFooter(`User Joined | Members- ${member.guild.memberCount}`)
+	.setFooter(`Katıldı | Üye- ${member.guild.memberCount}`)
 	.setColor("#cde246")    
-	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.user.displayAvatarURL)
+	.setAuthor(`**${member.displayName}** isimli üye **${member.guild.name}** sunucusuna katıldı.`, member.user.displayAvatarURL)
 	.setTimestamp()
 	channel.send(Embed);
 	});
 	bot.on('guildMemberRemove', member => {
-    bot.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    bot.channels.get('450952678781091842').setName(`Toplam Üye: ${member.guild.memberCount}`)
     let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    bot.channels.get('450952771752034305').setName(`Üye Sayısı: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
-	const channel = member.guild.channels.find(`name`, 'member-log');
+    bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
+	const channel = member.guild.channels.find(`name`, 'zp_atanlar');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
 	.setColor("#e26346")
-	.setAuthor(`${member.displayName}, has left ${member.guild.name}.`, member.user.displayAvatarURL)
+	.setAuthor(`**${member.displayName}** isimli üye **${member.guild.name}** isimli sunucudan ayrıldı`, member.user.displayAvatarURL)
 	.setTimestamp()
-	.setFooter(`User Left | Members- ${member.guild.memberCount}`)
+	.setFooter(`Ayrıldı | Üyeler- ${member.guild.memberCount}`)
 	channel.send(Embed);
 	});
 
 	bot.on('guildCreate', guild => {
-	      let channel = bot.channels.get("428564028239904790")
+	      let channel = bot.channels.get("450955859510427650")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
-        .setAuthor(`Joined ${guild.name}`)
+        .setAuthor(`Katıldım - ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner.user.tag)
+        .addField("Sahibi", guild.owner.user.tag)
         .addField("ID", guild.id, true)
-        .addField("Users", guild.memberCount, true)
-        .addField("Channels", guild.channels.size, true)
+        .addField("Üye Sayısı", guild.memberCount, true)
+        .addField("Kanal Sayısı", guild.channels.size, true)
          channel.send(embed);
 	});
 	bot.on('guildDelete', guild => {
-	      let channel = bot.channels.get("428564028239904790")
+	      let channel = bot.channels.get("450955966158995456")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
-        .setAuthor(`Left ${guild.name}`)
+        .setAuthor(`Ayrıldım - ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner.user.tag)
+        .addField("Sahibi", guild.owner.user.tag)
         .addField("ID", guild.id, true)
-        .addField("Users", guild.memberCount, true)
-        .addField("Channels", guild.channels.size, true)
+        .addField("Üye Sayısı", guild.memberCount, true)
+        .addField("Kanal Sayısı", guild.channels.size, true)
          channel.send(embed);
 	});
 	bot.login(process.env.BOT_TOKEN);
